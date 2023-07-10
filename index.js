@@ -16,26 +16,25 @@ function createEmployeeRecords(twoRows) {
 }
  
 
-function createEmployeeRecords(twoRows) {
-  let employeeRecords = twoRows;
-  return employeeRecords;
-}
-let twoRows = [
-  ["moe", "sizlak", "barkeep", 2],
-  ["bartholomew", "simpson", "scamp", 3],
-];
-const chai = require("chai");
-const spies = require("chai-spies");
-chai.use(spies);
-``;
-let mySpy = chai.spy.on(window, "createEmployeeRecord");
-createEmployeeRecords(twoRows);
-let nameExtractor = function (e) {
-  return e.firstName;
-};
+// function createEmployeeRecords(twoRows) {
+//   let employeeRecords = twoRows;
+//   return employeeRecords;
+// }
+// let twoRows = [
+//   ["moe", "sizlak", "barkeep", 2],
+//   ["bartholomew", "simpson", "scamp", 3],
+// ];
+// const chai = require("chai");
+// const spies = require("chai-spies");
+// chai.use(spies);
+// ``;
+// let mySpy = chai.spy.on(window, "createEmployeeRecord");
+// createEmployeeRecords(twoRows);
+// let nameExtractor = function (e) {
+//   return e.firstName;
+// };
 
 function createTimeInEvent(bpRecord, timestamp) {
-  let timestamp = "2014-02-28 1400";
   let newEvent = {
     type: "TimeIn",
     date: timestamp.substring(0, 10),

@@ -48,7 +48,7 @@ function createTimeInEvent(bpRecord, timestamp) {
 
   return bpRecord;
 }
- createTimeInEvent();
+createTimeInEvent();
 
 function createTimeOutEvent(bpRecord, timestamp) {
   let timestamp = "2015-02-28 1700";
@@ -60,24 +60,32 @@ function createTimeOutEvent(bpRecord, timestamp) {
   if (!bpRecord.timeOutEvents) {
     bpRecord.timeOutEvents = [];
   }
-  bpRecord.timeOutEvents.push(newEvent)
+  bpRecord.timeOutEvents.push(newEvent);
 
   return bpRecord;
 }
- return createTimeOutEvent();
+createTimeOutEvent();
 
-function calculateHoursWorkedOnDate(cRecord){
-let timeInEvent = "2044-03-15 0900";
-let timeOutEvent = "2044-03-15 1100";
-let hoursWorkedOnDate = parseInt(timeOutEvent - timeInEvent);
+// function calculateHoursWorkedOnDate(cRecord){
+// let timeInEvent = "2044-03-15 0900";
+// let timeOutEvent = "2044-03-15 1100";
+// let hoursWorkedOnDate = parseInt(timeOutEvent - timeInEvent);
 
+// return hoursWorkedOnDate;
+// }
+//  calculateHoursWorkedOnDate()
 
-return hoursWorkedOnDate;
+function hoursWorkedOnDate(date) {
+  const timeInEvent = this.timeInEvents.find((event) => event.date === date);
+  const timeOutEvent = this.timeOutEvents.find((event) => event.date === date);
+
+  const timeIn = parseInt(timeInEvent.hour.slice(0, 2), 10);
+  const timeOut = parseInt(timeOutEvent.hour.slice(0, 2), 10);
+
+  const hoursWorked = timeOut - timeIn;
+
+  return hoursWorked;
 }
- return calculateHoursWorkedOnDate();
-
-
-
 
 /*
  We're giving you this function. Take a look at it, you might see some usage

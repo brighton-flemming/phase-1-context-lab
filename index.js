@@ -66,14 +66,6 @@ function createTimeOutEvent(bpRecord, timestamp) {
 }
 createTimeOutEvent();
 
-// function calculateHoursWorkedOnDate(cRecord){
-// let timeInEvent = "2044-03-15 0900";
-// let timeOutEvent = "2044-03-15 1100";
-// let hoursWorkedOnDate = parseInt(timeOutEvent - timeInEvent);
-
-// return hoursWorkedOnDate;
-// }
-//  calculateHoursWorkedOnDate()
 
 function hoursWorkedOnDate(date) {
   const timeInEvent = this.timeInEvents.find((event) => event.date === date);
@@ -86,6 +78,7 @@ function hoursWorkedOnDate(date) {
 
   return hoursWorked;
 }
+hoursWorkedOnDate;
 
 /*
  We're giving you this function. Take a look at it, you might see some usage

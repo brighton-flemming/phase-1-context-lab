@@ -44,9 +44,9 @@ function createTimeOutEvent(timestamp) {
   return this;
 }
 
-function hoursWorkedOnDate(date) {
-  const timeInEvent = this.timeInEvents.find((event) => event.date === date);
-  const timeOutEvent = this.timeOutEvents.find((event) => event.date === date);
+function hoursWorkedOnDate(soughtDate) {
+  let timeInEvent = this.timeInEvents.find(e => e.date === soughtDate);
+  let timeOutEvent = this.timeOutEvents.find(e => e.date === soughtDate);
 
   const timeIn = parseInt(timeInEvent.hour.slice(0, 2), 10);
   const timeOut = parseInt(timeOutEvent.hour.slice(0, 2), 10);

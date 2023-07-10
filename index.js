@@ -15,8 +15,6 @@ function createEmployeeRecords(twoRows) {
   return twoRows.map(createEmployeeRecord);
 }
  
-}
-thePayRollSystem();
 
 function createEmployeeRecords(twoRows) {
   let employeeRecords = twoRows;

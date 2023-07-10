@@ -52,9 +52,7 @@ function createTimeOutEvent(bpRecord, timestamp) {
     date: timestamp.substring(0, 10),
     time: timestamp(parseInt.substring(11), 10),
   };
-  if (!bpRecord.timeOutEvents) {
-    bpRecord.timeOutEvents = [];
-  }
+ 
   bpRecord.timeOutEvents.push(newEvent);
 
   return bpRecord;

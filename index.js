@@ -47,7 +47,6 @@ function createTimeInEvent(bpRecord, timestamp) {
 }
 
 function createTimeOutEvent(bpRecord, timestamp) {
-  let timestamp = "2015-02-28 1700";
   let newEvent = {
     type: "TimeOut",
     date: timestamp.substring(0, 10),

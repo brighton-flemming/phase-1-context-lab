@@ -40,9 +40,7 @@ function createTimeInEvent(bpRecord, timestamp) {
     date: timestamp.substring(0, 10),
     time: parseInt(timestamp.substring(11), 10),
   };
-  if (!bpRecord.timeInEvents) {
-    bpRecord.timeInEvents = [];
-  }
+ 
   bpRecord.timeInEvents.push(newEvent);
 
   return bpRecord;

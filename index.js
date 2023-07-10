@@ -86,6 +86,24 @@ function wagesEarnedOnDate(date) {
   return wagesEarned;
 }
 
+function allWagesFor() {
+
+  const totalWages = this.timeInEvents.reduce((total, timeInEvent) => {
+const date = timeInEvent.date;
+
+const wagesEarned = wagesEarnedOnDate.call(this, date);
+
+return total + wagesEarned;
+}, 0);
+
+return totalWages;
+}
+
+
+
+
+
+
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but

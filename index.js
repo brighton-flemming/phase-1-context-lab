@@ -11,10 +11,8 @@
     return testEmployee;
   }
 function createEmployeeRecords(twoRows) {
-  return twoRows.map(createEmployeeRecord);
-}
- 
-
+  return twoRows.map(createEmployeeRecord)
+  }
 
 let twoRows = [
   ["moe", "sizlak", "barkeep", 2],

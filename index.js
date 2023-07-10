@@ -19,17 +19,29 @@ let twoRows = [
   ["bartholomew", "simpson", "scamp", 3],
 ];
 
+// let createTimeInEvent = function (timeStamp){
+//   let[date, hour] = timeStamp.split(' ')
 
-function createTimeInEvent(bpRecord, timestamp) {
-  let newEvent = {
+//   this.timeInEvents.push({
+//     type:"TimeIn",
+//     hour: parseInt(hour, 10),
+//     date,
+//   })
+//   return this
+// }
+
+
+
+function createTimeInEvent( timestamp) {
+  let [date, hour] = timestamp.split(' ')
+  this.timeInEvents.push({
     type: "TimeIn",
-    date: timestamp.substring(0, 10),
-    time: parseInt(timestamp.substring(11), 10),
-  };
+    hour : parseInt(hour, 10),
+    date,
+  });
  
-  bpRecord.timeInEvents.push(newEvent);
 
-  return bpRecord;
+  return this;
 }
 
 function createTimeOutEvent(bpRecord, timestamp) {

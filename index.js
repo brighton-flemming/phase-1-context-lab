@@ -23,15 +23,7 @@ let twoRows = [
   ["moe", "sizlak", "barkeep", 2],
   ["bartholomew", "simpson", "scamp", 3],
 ];
-const chai = require("chai");
-const spies = require("chai-spies");
-chai.use(spies);
-``;
-let mySpy = chai.spy.on(window, "createEmployeeRecord");
-createEmployeeRecords(twoRows);
-let nameExtractor = function (e) {
-  return e.firstName;
-};
+
 
 function createTimeInEvent(bpRecord, timestamp) {
   let newEvent = {
@@ -76,7 +68,7 @@ function wagesEarnedOnDate(date) {
 
   return wagesEarned;
 }
-
+ 
  
 
 /*
@@ -103,3 +95,10 @@ const allWagesFor = function () {
   return payable;
  
   }
+
+  let findEmployeeByFirstName = function(srcArray, firstName) {
+
+    return srcArray.find(function(rec){
+      return rec.firstName === firstName
+    });
+  };

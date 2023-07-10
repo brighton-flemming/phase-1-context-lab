@@ -128,6 +128,7 @@ function allWagesFor () {
   let grandTotalOwed = [sRecord, rRecord].reduce(function (total, employee){
     return total + allWagesFor.call(employee);
   }, 0);
+  return grandTotalOwed;
 }
 
 

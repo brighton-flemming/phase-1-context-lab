@@ -48,20 +48,16 @@ function hoursWorkedOnDate(soughtDate) {
   let timeInEvent = this.timeInEvents.find(e => e.date === soughtDate);
   let timeOutEvent = this.timeOutEvents.find(e => e.date === soughtDate);
 
-  const timeIn = parseInt(timeInEvent.hour.slice(0, 2), 10);
-  const timeOut = parseInt(timeOutEvent.hour.slice(0, 2), 10);
 
-  const hoursWorked = (timeOut - timeIn) / 100;
+  const hoursWorked = (timeOutEvent - timeInEvent) / 100;
 
   return hoursWorked;
 }
 
-function wagesEarnedOnDate(date) {
-  const hoursWorked = hoursWorkedOnDate.call(this, date);
+let wagesEarnedOnDate = function(dateSought) {
+  const wagesEarned = hoursWorkedOnDate.call(this, dateSought) * this.payPerHour
 
-  const wagesEarned = hoursWorked * this.payRatePerHour;
-
-  return wagesEarned;
+  return parseFloat(wagesEarned.toString());
 }
  
  

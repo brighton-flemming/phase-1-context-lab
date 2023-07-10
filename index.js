@@ -49,7 +49,7 @@ function hoursWorkedOnDate(soughtDate) {
   let timeOutEvent = this.timeOutEvents.find(e => e.date === soughtDate);
 
 
-  const hoursWorked = (timeOutEvent - timeInEvent) / 100;
+  const hoursWorked = (timeOutEvent.hour - timeInEvent.hour) / 100;
 
   return hoursWorked;
 }
@@ -71,17 +71,15 @@ let wagesEarnedOnDate = function(dateSought) {
  for you to use if you need it!
  */
 
-const allWagesFor = function () {
-  const eligibleDates = this.timeInEvents.map(function (e) {
+let allWagesFor = function () {
+  let eligibleDates = this.timeInEvents.map(function (e) {
     return e.date;
   });
 
-  const payable = eligibleDates.reduce(
+  let payable = eligibleDates.reduce(
     function (memo, d) {
       return memo + wagesEarnedOnDate.call(this, d);
-    }.bind(this),
-    0
-  ); // <== Hm, why did we need to add bind() there? We'll discuss soon!
+    }.bind(this), 0); // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
   return payable;
  
@@ -97,5 +95,5 @@ const allWagesFor = function () {
   let calculatePayroll = function(arrayOfEmployeeRecords){
     return arrayOfEmployeeRecords.reduce(function(memo, rec){
       return memo + allWagesFor.call(rec)
-    }, 0)
-  }
+    }, 0);
+  };

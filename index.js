@@ -1,7 +1,6 @@
 /* Your Code Here */
 
-function thePayRollSystem() {
-  function createEmployeeRecord(employeeData) {
+  let createEmployeeRecord = function(employeeData) {
     let testEmployee = {};
     testEmployee.firstName = employeeData[0];
     testEmployee.familyName = employeeData[1];
@@ -16,23 +15,23 @@ function createEmployeeRecords(twoRows) {
 }
  
 
-// function createEmployeeRecords(twoRows) {
-//   let employeeRecords = twoRows;
-//   return employeeRecords;
-// }
-// let twoRows = [
-//   ["moe", "sizlak", "barkeep", 2],
-//   ["bartholomew", "simpson", "scamp", 3],
-// ];
-// const chai = require("chai");
-// const spies = require("chai-spies");
-// chai.use(spies);
-// ``;
-// let mySpy = chai.spy.on(window, "createEmployeeRecord");
-// createEmployeeRecords(twoRows);
-// let nameExtractor = function (e) {
-//   return e.firstName;
-// };
+function createEmployeeRecords(twoRows) {
+  let employeeRecords = twoRows;
+  return employeeRecords;
+}
+let twoRows = [
+  ["moe", "sizlak", "barkeep", 2],
+  ["bartholomew", "simpson", "scamp", 3],
+];
+const chai = require("chai");
+const spies = require("chai-spies");
+chai.use(spies);
+``;
+let mySpy = chai.spy.on(window, "createEmployeeRecord");
+createEmployeeRecords(twoRows);
+let nameExtractor = function (e) {
+  return e.firstName;
+};
 
 function createTimeInEvent(bpRecord, timestamp) {
   let newEvent = {
@@ -65,7 +64,7 @@ function hoursWorkedOnDate(date) {
   const timeIn = parseInt(timeInEvent.hour.slice(0, 2), 10);
   const timeOut = parseInt(timeOutEvent.hour.slice(0, 2), 10);
 
-  const hoursWorked = timeOut - timeIn;
+  const hoursWorked = (timeOut - timeIn) / 100;
 
   return hoursWorked;
 }
@@ -78,48 +77,7 @@ function wagesEarnedOnDate(date) {
   return wagesEarned;
 }
 
-function allWagesFor() {
-  const totalWages = this.timeInEvents.reduce((total, timeInEvent) => {
-    const date = timeInEvent.date;
-
-    const wagesEarned = wagesEarnedOnDate.call(this, date);
-
-    return total + wagesEarned;
-  }, 0);
-
-  return totalWages;
-}
-
-function allWagesFor() {
-  let rRecord = createEmployeeRecord(["Rafiki", "", "Aide", 10]);
-  let sRecord = createEmployeeRecord(["Simba", "", "King", 100]);
-
-  let sTimeData = [
-    ["2019-01-01 0900", "2019-01-01 1300"],
-    ["2019-01-02 1000", "2019-01-02 1300"],
-  ];
-
-  let rTimeData = [
-    ["2019-01-11 0900", "2019-01-11 1300"],
-    ["2019-01-12 1000", "2019-01-12 1300"],
-  ];
-
-  sTimeData.forEach(function (d) {
-    let [dIn, dOut] = d;
-    createTimeInEvent.call(sRecord, dIn);
-    createTimeOutEvent.call(sRecord, dOut);
-  });
-
-  rTimeData.forEach(function (d) {
-    let [dIn, dOut] = d;
-    createTimeInEvent.call(rRecord, dIn);
-    createTimeOutEvent.call(rRecord, dOut);
-  });
-  let grandTotalOwed = [sRecord, rRecord].reduce(function (total, employee) {
-    return total + allWagesFor.call(employee);
-  }, 0);
-  return grandTotalOwed;
-}
+ 
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
@@ -143,4 +101,5 @@ const allWagesFor = function () {
   ); // <== Hm, why did we need to add bind() there? We'll discuss soon!
 
   return payable;
-};
+ 
+  }

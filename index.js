@@ -5,7 +5,7 @@
     testEmployee.firstName = employeeData[0];
     testEmployee.familyName = employeeData[1];
     testEmployee.title = employeeData[2];
-    testEmployee.payRatePerHour = employeeData[3];
+    testEmployee.payPerHour = employeeData[3];
     testEmployee.timeInEvents = [];
     testEmployee.timeOutEvents = [];
     return testEmployee;
@@ -97,3 +97,4 @@ let allWagesFor = function () {
       return memo + allWagesFor.call(rec)
     }, 0);
   };
+  

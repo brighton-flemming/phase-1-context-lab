@@ -120,7 +120,14 @@ function allWagesFor () {
     createTimeOutEvent.call(sRecord, dOut);
   });
 
-  
+  rTimeData.forEach(function(d){
+    let [dIn, dOut] = d;
+    createTimeInEvent.call(rRecord, dIn);
+    createTimeOutEvent.call(rRecord, dOut);
+  });
+  let grandTotalOwed = [sRecord, rRecord].reduce(function (total, employee){
+    return total + allWagesFor.call(employee);
+  }, 0);
 }
 
 

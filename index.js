@@ -129,8 +129,8 @@ function allWagesFor () {
     return total + allWagesFor.call(employee);
   }, 0);
   return grandTotalOwed;
-}
 
+}
 
 
 

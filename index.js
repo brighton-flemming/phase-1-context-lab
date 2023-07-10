@@ -15,10 +15,7 @@ function createEmployeeRecords(twoRows) {
 }
  
 
-function createEmployeeRecords(twoRows) {
-  let employeeRecords = twoRows;
-  return employeeRecords;
-}
+
 let twoRows = [
   ["moe", "sizlak", "barkeep", 2],
   ["bartholomew", "simpson", "scamp", 3],

@@ -11,8 +11,10 @@ function thePayRollSystem() {
     testEmployee.timeOutEvents = [];
     return testEmployee;
   }
-  let testEmployee = createEmployeeRecord(["Gray", "Worm", "Security", 1]);
-  return testEmployee;
+function createEmployeeRecords(twoRows) {
+  return twoRows.map(createEmployeeRecord);
+}
+ 
 }
 thePayRollSystem();
 

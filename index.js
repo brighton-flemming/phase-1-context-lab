@@ -49,7 +49,6 @@ function createTimeInEvent(bpRecord, timestamp) {
   return bpRecord;
 }
 
-
 function createTimeOutEvent(bpRecord, timestamp) {
   let timestamp = "2015-02-28 1700";
   let newEvent = {
@@ -64,7 +63,6 @@ function createTimeOutEvent(bpRecord, timestamp) {
 
   return bpRecord;
 }
-
 
 function hoursWorkedOnDate(date) {
   const timeInEvent = this.timeInEvents.find((event) => event.date === date);
@@ -87,53 +85,47 @@ function wagesEarnedOnDate(date) {
 }
 
 function allWagesFor() {
-
   const totalWages = this.timeInEvents.reduce((total, timeInEvent) => {
-const date = timeInEvent.date;
+    const date = timeInEvent.date;
 
-const wagesEarned = wagesEarnedOnDate.call(this, date);
+    const wagesEarned = wagesEarnedOnDate.call(this, date);
 
-return total + wagesEarned;
-}, 0);
+    return total + wagesEarned;
+  }, 0);
 
-return totalWages;
+  return totalWages;
 }
 
-function allWagesFor () {
-
+function allWagesFor() {
   let rRecord = createEmployeeRecord(["Rafiki", "", "Aide", 10]);
   let sRecord = createEmployeeRecord(["Simba", "", "King", 100]);
 
   let sTimeData = [
-    ["2019-01-01 0900", "2019-01-01 1300"], 
-    ["2019-01-02 1000", "2019-01-02 1300"]  
-  ]
+    ["2019-01-01 0900", "2019-01-01 1300"],
+    ["2019-01-02 1000", "2019-01-02 1300"],
+  ];
 
   let rTimeData = [
-    ["2019-01-11 0900", "2019-01-11 1300"], 
-    ["2019-01-12 1000", "2019-01-12 1300"]  
-  ]
+    ["2019-01-11 0900", "2019-01-11 1300"],
+    ["2019-01-12 1000", "2019-01-12 1300"],
+  ];
 
-  sTimeData.forEach(function(d){
+  sTimeData.forEach(function (d) {
     let [dIn, dOut] = d;
     createTimeInEvent.call(sRecord, dIn);
     createTimeOutEvent.call(sRecord, dOut);
   });
 
-  rTimeData.forEach(function(d){
+  rTimeData.forEach(function (d) {
     let [dIn, dOut] = d;
     createTimeInEvent.call(rRecord, dIn);
     createTimeOutEvent.call(rRecord, dOut);
   });
-  let grandTotalOwed = [sRecord, rRecord].reduce(function (total, employee){
+  let grandTotalOwed = [sRecord, rRecord].reduce(function (total, employee) {
     return total + allWagesFor.call(employee);
   }, 0);
   return grandTotalOwed;
-
 }
-
-
-
 
 /*
  We're giving you this function. Take a look at it, you might see some usage

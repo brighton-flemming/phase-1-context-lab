@@ -48,7 +48,7 @@ function createTimeInEvent(bpRecord, timestamp) {
 
   return bpRecord;
 }
-createTimeInEvent();
+
 
 function createTimeOutEvent(bpRecord, timestamp) {
   let timestamp = "2015-02-28 1700";
@@ -64,7 +64,7 @@ function createTimeOutEvent(bpRecord, timestamp) {
 
   return bpRecord;
 }
-createTimeOutEvent();
+
 
 function hoursWorkedOnDate(date) {
   const timeInEvent = this.timeInEvents.find((event) => event.date === date);
@@ -99,6 +99,29 @@ return total + wagesEarned;
 return totalWages;
 }
 
+function allWagesFor () {
+
+  let rRecord = createEmployeeRecord(["Rafiki", "", "Aide", 10]);
+  let sRecord = createEmployeeRecord(["Simba", "", "King", 100]);
+
+  let sTimeData = [
+    ["2019-01-01 0900", "2019-01-01 1300"], 
+    ["2019-01-02 1000", "2019-01-02 1300"]  
+  ]
+
+  let rTimeData = [
+    ["2019-01-11 0900", "2019-01-11 1300"], 
+    ["2019-01-12 1000", "2019-01-12 1300"]  
+  ]
+
+  sTimeData.forEach(function(d){
+    let [dIn, dOut] = d;
+    createTimeInEvent.call(sRecord, dIn);
+    createTimeOutEvent.call(sRecord, dOut);
+  });
+
+  
+}
 
 
 

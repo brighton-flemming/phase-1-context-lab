@@ -66,7 +66,6 @@ function createTimeOutEvent(bpRecord, timestamp) {
 }
 createTimeOutEvent();
 
-
 function hoursWorkedOnDate(date) {
   const timeInEvent = this.timeInEvents.find((event) => event.date === date);
   const timeOutEvent = this.timeOutEvents.find((event) => event.date === date);
@@ -80,21 +79,12 @@ function hoursWorkedOnDate(date) {
 }
 
 function wagesEarnedOnDate(date) {
-
   const hoursWorked = hoursWorkedOnDate.call(this, date);
 
   const wagesEarned = hoursWorked * this.payRatePerHour;
 
   return wagesEarned;
 }
-
-
-
-
-
-
-
-
 
 /*
  We're giving you this function. Take a look at it, you might see some usage

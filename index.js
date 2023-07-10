@@ -19,17 +19,6 @@ let twoRows = [
   ["bartholomew", "simpson", "scamp", 3],
 ];
 
-// let createTimeInEvent = function (timeStamp){
-//   let[date, hour] = timeStamp.split(' ')
-
-//   this.timeInEvents.push({
-//     type:"TimeIn",
-//     hour: parseInt(hour, 10),
-//     date,
-//   })
-//   return this
-// }
-
 
 
 function createTimeInEvent( timestamp) {
@@ -44,16 +33,15 @@ function createTimeInEvent( timestamp) {
   return this;
 }
 
-function createTimeOutEvent(bpRecord, timestamp) {
-  let newEvent = {
+function createTimeOutEvent(timestamp) {
+  let [date, hour] = timestamp.split(' ')
+  this.timeOutEvents.push({
     type: "TimeOut",
-    date: timestamp.substring(0, 10),
-    time: timestamp(parseInt.substring(11), 10),
-  };
+    hour : parseInt(hour, 10),
+    date,
+  })
  
-  bpRecord.timeOutEvents.push(newEvent);
-
-  return bpRecord;
+  return this;
 }
 
 function hoursWorkedOnDate(date) {
